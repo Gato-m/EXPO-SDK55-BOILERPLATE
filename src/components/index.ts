@@ -6,4 +6,3 @@ export * from "./ThemedInput";
 export * from "./ThemedSpacer";
 export * from "./ThemedText";
 export * from "./ThemedView";
-
