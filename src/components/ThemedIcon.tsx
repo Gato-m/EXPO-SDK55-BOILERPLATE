@@ -1,28 +1,16 @@
+import { useTheme } from "@shopify/restyle";
 import React from "react";
-import { createBox, useTheme } from "@shopify/restyle";
-import { theme } from "../theme/theme";
-import { View } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/Ionicons";
+import { Theme } from "../theme";
 
-const Box = createBox<typeof theme>();
-
-export type ThemedIconProps = {
+type Props = {
   name: string;
   size?: number;
-  color?: string;
-  variant?: "primary" | "secondary";
+  variant?: keyof Theme["colors"];
 };
 
-const ThemedIcon: React.FC<ThemedIconProps> = ({ name, size = 24, color, variant = "primary" }) => {
-  const themeObj = useTheme<typeof theme>();
-  const iconColor =
-    color || (variant === "primary" ? themeObj.colors.primary : themeObj.colors.gray800);
+export function ThemedIcon({ name, size = 24, variant = "text" }: Props) {
+  const theme = useTheme<Theme>();
 
-  return (
-    <View>
-      <MaterialIcons name={name} size={size} color={iconColor} />
-    </View>
-  );
-};
-
-export default ThemedIcon;
+  return <Icon name={name} size={size} color={theme.colors[variant]} />;
+}

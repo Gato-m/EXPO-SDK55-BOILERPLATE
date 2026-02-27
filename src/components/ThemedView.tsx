@@ -1,6 +1,22 @@
-import { createBox } from "@shopify/restyle";
-import { theme } from "../theme/theme";
+// src/components/ThemedView.tsx
+import { useTheme } from "@shopify/restyle";
+import React from "react";
+import { View, ViewProps } from "react-native";
+import { Theme } from "../theme";
 
-const ThemedView = createBox<typeof theme>();
+export function ThemedView({ style, ...rest }: ViewProps) {
+  const theme = useTheme<Theme>();
 
-export default ThemedView;
+  return (
+    <View
+      style={[
+        {
+          backgroundColor: theme.colors.background,
+          flex: 1,
+        },
+        style,
+      ]}
+      {...rest}
+    />
+  );
+}

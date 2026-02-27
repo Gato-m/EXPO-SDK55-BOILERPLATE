@@ -1,5 +1,6 @@
-import ThemedText from "./ThemedText";
+import React from "react";
+import { ThemedText } from "./ThemedText";
 
-const ThemedHeader = (props) => <ThemedText variant="header" {...props} />;
-
-export default ThemedHeader;
+export function ThemedHeader({ children }: { children: React.ReactNode }) {
+  return <ThemedText variant="header">{children}</ThemedText>;
+}

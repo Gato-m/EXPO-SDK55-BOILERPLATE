@@ -1,24 +1,14 @@
-import { createBox, useTheme } from "@shopify/restyle";
+import { useTheme } from "@shopify/restyle";
 import React from "react";
-import { theme } from "../theme/theme";
+import { View } from "react-native";
+import { Theme } from "../theme";
 
-const Box = createBox<typeof theme>();
-
-export type ThemedSpacerProps = {
-  size?: keyof typeof theme.spacing;
-  horizontal?: boolean;
+type Props = {
+  size?: keyof Theme["spacing"];
 };
 
-const ThemedSpacer: React.FC<ThemedSpacerProps> = ({
-  size = "m",
-  horizontal = false,
-}) => {
-  const themeObj = useTheme<typeof theme>();
-  const spacerStyle = horizontal
-    ? { width: themeObj.spacing[size], height: 1 }
-    : { height: themeObj.spacing[size], width: 1 };
+export function ThemedSpacer({ size = "m" }: Props) {
+  const theme = useTheme<Theme>();
 
-  return <Box style={spacerStyle} />;
-};
-
-export default ThemedSpacer;
+  return <View style={{ height: theme.spacing[size] }} />;
+}

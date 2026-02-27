@@ -1,6 +1,27 @@
-import { createText } from "@shopify/restyle";
-import { theme } from "../theme/theme";
+import { useTheme } from "@shopify/restyle";
+import React from "react";
+import { Text, TextProps } from "react-native";
+import { Theme } from "../theme";
 
-const ThemedText = createText<typeof theme>();
+type Props = TextProps & {
+  variant?: keyof Theme["textVariants"];
+};
 
-export default ThemedText;
+export function ThemedText({ variant = "body", style, ...rest }: Props) {
+  const theme = useTheme<Theme>();
+  const v = theme.textVariants[variant];
+
+  return (
+    <Text
+      style={[
+        {
+          color: theme.colors.text,
+          fontSize: v.fontSize,
+          fontFamily: v.fontFamily,
+        },
+        style,
+      ]}
+      {...rest}
+    />
+  );
+}
