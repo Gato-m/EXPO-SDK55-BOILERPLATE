@@ -10,7 +10,7 @@ export function ThemedCard({ style, ...rest }: ViewProps) {
     <View
       style={[
         {
-          backgroundColor: theme.colors.gray100,
+          backgroundColor: theme.colors.primary,
           padding: theme.spacing.m,
           borderRadius: theme.borderRadii.m,
         },

@@ -26,7 +26,7 @@ export function ThemedButton({ label, variant = "primary", onPress }: Props) {
           : "transparent",
       }}
     >
-      <Text style={{ color: theme.colors.text, textAlign: "center" }}>
+      <Text style={{ color: theme.colors.white, textAlign: "center" }}>
         {label}
       </Text>
     </TouchableOpacity>

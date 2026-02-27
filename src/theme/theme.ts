@@ -2,30 +2,37 @@
 import { createTheme } from "@shopify/restyle";
 
 export const LightPalette = {
-  primary: "#0A84FF",
-  primaryDark: "#0060DF",
+  primary: "#fbfbfb",
+  primaryDark: "#e6e6e6",
+  accent: "#af2362",
   gray100: "#F5F5F5",
-  gray200: "#E5E5E5",
+  gray200: "#d2d2d2",
+  gray400: "#b9b9b9",
   gray800: "#333333",
   white: "#FFFFFF",
   black: "#000000",
+  text: "#959595",
+  textSecondary: "#818d9c",
 };
-
 export const DarkPalette = {
-  primary: "#0aff37",
-  primaryDark: "#0d651e",
+  primary: "#323e4d",
+  primaryDark: "#262f3b",
+  accent: "#af2362",
   gray100: "#222222",
-  gray200: "#444444",
-  gray800: "#DDDDDD",
-  white: "#000000",
-  black: "#FFFFFF",
+  gray200: "#d2d2d2",
+  gray400: "#b9b9b9",
+  gray800: "#333333",
+  white: "#dddada",
+  black: "#000000",
+  text: "#959595",
+  textSecondary: "#818d9c",
 };
 
 export const createAppTheme = (palette: typeof LightPalette) =>
   createTheme({
     colors: {
       ...palette,
-      background: palette.white,
+      background: palette.primaryDark,
       text: palette.gray800,
     },
 
@@ -67,12 +74,19 @@ export const createAppTheme = (palette: typeof LightPalette) =>
 
     buttonVariants: {
       primary: {
-        backgroundColor: "primary",
+        backgroundColor: "accent",
         padding: "m",
         borderRadius: "m",
       },
       secondary: {
         backgroundColor: "gray100",
+        padding: "m",
+        borderRadius: "m",
+        borderWidth: 1,
+        borderColor: "primary",
+      },
+      accent: {
+        backgroundColor: "accent",
         padding: "m",
         borderRadius: "m",
         borderWidth: 1,
