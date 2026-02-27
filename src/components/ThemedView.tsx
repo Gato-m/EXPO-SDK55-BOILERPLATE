@@ -1,5 +1,6 @@
-import { View, ViewProps } from "react-native";
+import { createBox } from "@shopify/restyle";
+import { theme } from "../theme/theme";
 
-export function ThemedView(props: ViewProps) {
-  return <View {...props} />;
-}
+const ThemedView = createBox<typeof theme>();
+
+export default ThemedView;

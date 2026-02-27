@@ -1,15 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { ThemeProvider as RestyleThemeProvider } from "@shopify/restyle";
 import { theme } from "../theme/theme";
 
-const ThemeContext = createContext(theme);
-
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [currentTheme] = useState(theme);
-  return (
-    <ThemeContext.Provider value={currentTheme}>
-      {children}
-    </ThemeContext.Provider>
-  );
+export function ThemeProvider({ children }) {
+  return <RestyleThemeProvider theme={theme}>{children}</RestyleThemeProvider>;
 }
 
 export function useTheme() {

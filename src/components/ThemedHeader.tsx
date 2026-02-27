@@ -1,5 +1,5 @@
-import { Text } from "react-native";
+import ThemedText from "./ThemedText";
 
-export function ThemedHeader({ title }: { title: string }) {
-  return <Text style={{ fontSize: 24, fontWeight: "bold" }}>{title}</Text>;
-}
+const ThemedHeader = (props) => <ThemedText variant="header" {...props} />;
+
+export default ThemedHeader;

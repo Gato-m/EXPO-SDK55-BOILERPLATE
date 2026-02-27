@@ -26,7 +26,9 @@ export default function HomeScreen() {
           />
         </TouchableOpacity>
       </View>
-      <ThemedHeader title="Welcome to Expo Router 6 Boilerplate" />
+      <ThemedHeader variant="header">
+        Welcome to Expo Router 6 Boilerplate
+      </ThemedHeader>
       <ThemedText style={{ marginTop: 16, fontSize: 16 }}>
         This is your starter entry point. Edit this screen to begin your app!
       </ThemedText>

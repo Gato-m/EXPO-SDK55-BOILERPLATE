@@ -1,5 +1,6 @@
-import { Text, TextProps } from "react-native";
+import { createText } from "@shopify/restyle";
+import { theme } from "../theme/theme";
 
-export function ThemedText(props: TextProps) {
-  return <Text {...props} />;
-}
+const ThemedText = createText<typeof theme>();
+
+export default ThemedText;
