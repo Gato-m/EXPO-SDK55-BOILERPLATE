@@ -8,6 +8,7 @@ import {
 } from "../../components";
 
 import { useTheme } from "@shopify/restyle";
+import { ScrollView } from "react-native";
 import { useThemeMode } from "../../providers/ThemeProvider";
 import { Theme } from "../../theme";
 
@@ -32,43 +33,45 @@ export default function Profile() {
 
   return (
     <ThemedView style={{ padding: 20 }}>
-      <ThemedHeader color="text">Krāsu Palete</ThemedHeader>
-      <ThemedSpacer size="xl" />
+      <ScrollView>
+        <ThemedHeader color="text">Krāsu Palete</ThemedHeader>
+        <ThemedSpacer size="xl" />
 
-      <ThemedButton
-        label={
-          mode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"
-        }
-        variant="primary"
-        onPress={toggle}
-      />
+        <ThemedButton
+          label={
+            mode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"
+          }
+          variant="primary"
+          onPress={toggle}
+        />
 
-      <ThemedSpacer size="xl" />
+        <ThemedSpacer size="xl" />
 
-      {colorKeys.map((key) => {
-        const bg = theme.colors[key];
-        const dark = isColorDark(bg);
+        {colorKeys.map((key) => {
+          const bg = theme.colors[key];
+          const dark = isColorDark(bg);
 
-        return (
-          <ThemedCard
-            key={key}
-            style={{
-              backgroundColor: bg,
-              marginBottom: theme.spacing.s,
-              padding: theme.spacing.s,
-            }}
-          >
-            <ThemedText
-              variant="body"
+          return (
+            <ThemedCard
+              key={key}
               style={{
-                color: dark ? theme.colors.white : theme.colors.black,
+                backgroundColor: bg,
+                marginBottom: theme.spacing.s,
+                padding: theme.spacing.s,
               }}
             >
-              {key}: {bg}
-            </ThemedText>
-          </ThemedCard>
-        );
-      })}
+              <ThemedText
+                variant="body"
+                style={{
+                  color: dark ? theme.colors.white : theme.colors.black,
+                }}
+              >
+                {key}: {bg}
+              </ThemedText>
+            </ThemedCard>
+          );
+        })}
+      </ScrollView>
     </ThemedView>
   );
 }

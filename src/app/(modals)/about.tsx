@@ -35,7 +35,11 @@ export default function AboutModal() {
               onPress={() => router.back()}
               style={{ paddingHorizontal: 12 }}
             >
-              <Ionicons name="chevron-back" size={24} color="black" />
+              <Ionicons
+                name="chevron-back"
+                size={24}
+                color={theme.colors.text}
+              />
             </Pressable>
           ),
         }}

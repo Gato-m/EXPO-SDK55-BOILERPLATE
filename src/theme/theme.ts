@@ -2,32 +2,32 @@
 import { createTheme } from "@shopify/restyle";
 
 export const LightPalette = {
-  primary: "#F4F4F5",
+  primary: "#f3f3f3",
   primaryDark: "#D4D4D8",
-  accent: "#D81B60",
-  gray100: "#F3F4F6",
-  gray200: "#E5E7EB",
-  gray400: "#9CA3AF",
-  gray800: "#1F2937",
-  white: "#FFFFFF",
-  black: "#000000",
-  text: "#1F2937",
-  textSecondary: "#6B7280",
-  background: "#FAFAFA",
-};
-export const DarkPalette = {
-  primary: "#3A3F47",
-  primaryDark: "#2A2F36",
-  accent: "#E91E63",
-  gray100: "#1F1F1F",
-  gray200: "#D1D5DB",
-  gray400: "#9CA3AF",
-  gray800: "#2D2D2D",
+  accent: "#f0983e",
+  gray100: "#f4f4f4",
+  gray200: "#dbdddb",
+  gray400: "#9a9b9b",
+  gray800: "#5a5a5a",
   white: "#F3F4F6",
   black: "#000000",
-  text: "#E5E7EB",
-  textSecondary: "#9CA3AF",
-  background: "#111827",
+  text: "#424141",
+  textSecondary: "#f1f1f2",
+  background: "#e7e7e7",
+};
+export const DarkPalette = {
+  primary: "#3e4353",
+  primaryDark: "#2f3340",
+  accent: "#f0983e",
+  gray100: "#f4f4f4",
+  gray200: "#dbdddb",
+  gray400: "#9a9b9b",
+  gray800: "#5a5a5a",
+  white: "#F3F4F6",
+  black: "#000000",
+  text: "#eaeaea",
+  textSecondary: "#f1f1f2",
+  background: "#22252b",
 };
 
 export const createAppTheme = (palette: typeof LightPalette) =>

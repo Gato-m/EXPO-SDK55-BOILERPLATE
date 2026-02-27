@@ -7,21 +7,20 @@ export default function ModalsLayout() {
 
   return (
     <Stack
-      screenOptions={({ route }) => ({
-        presentation: "transparentModal",
+      screenOptions={{
+        presentation: "modal",
         animation: "slide_from_bottom",
-        headerShown: true,
-        headerTitle: route.name.charAt(0).toUpperCase() + route.name.slice(1),
 
-        // 🔥 Šeit notiek tumšās/light tēmas pārslēgšana
         headerStyle: {
           backgroundColor: theme.colors.background,
         },
         headerTitleStyle: {
           color: theme.colors.text,
         },
+
+        // 🔥 ŠIS ir kritiski — jābūt tieši šeit
         headerTintColor: theme.colors.text,
-      })}
+      }}
     />
   );
 }

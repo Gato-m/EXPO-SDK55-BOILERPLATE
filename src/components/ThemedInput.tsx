@@ -8,10 +8,10 @@ export function ThemedInput({ style, ...rest }: TextInputProps) {
 
   return (
     <TextInput
-      placeholderTextColor={theme.colors.text}
+      placeholderTextColor={theme.colors.gray400}
       style={[
         {
-          backgroundColor: theme.colors.primaryDark,
+          backgroundColor: theme.colors.gray200,
           color: theme.colors.text,
           padding: theme.spacing.m,
           borderRadius: theme.borderRadii.m,
