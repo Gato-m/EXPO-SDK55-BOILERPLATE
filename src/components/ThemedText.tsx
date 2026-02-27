@@ -7,7 +7,7 @@ type Props = TextProps & {
   variant?: keyof Theme["textVariants"];
 };
 
-export function ThemedText({ variant = "body", style, ...rest }: Props) {
+export function ThemedText({ variant = "body", style, ...rest }) {
   const theme = useTheme<Theme>();
   const v = theme.textVariants[variant];
 
@@ -15,7 +15,7 @@ export function ThemedText({ variant = "body", style, ...rest }: Props) {
     <Text
       style={[
         {
-          color: theme.colors.text,
+          color: theme.colors.text, // ← vienīgā krāsa
           fontSize: v.fontSize,
           fontFamily: v.fontFamily,
         },

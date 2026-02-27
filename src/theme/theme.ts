@@ -2,38 +2,40 @@
 import { createTheme } from "@shopify/restyle";
 
 export const LightPalette = {
-  primary: "#fbfbfb",
-  primaryDark: "#e6e6e6",
-  accent: "#af2362",
-  gray100: "#F5F5F5",
-  gray200: "#d2d2d2",
-  gray400: "#b9b9b9",
-  gray800: "#333333",
+  primary: "#F4F4F5",
+  primaryDark: "#D4D4D8",
+  accent: "#D81B60",
+  gray100: "#F3F4F6",
+  gray200: "#E5E7EB",
+  gray400: "#9CA3AF",
+  gray800: "#1F2937",
   white: "#FFFFFF",
   black: "#000000",
-  text: "#959595",
-  textSecondary: "#818d9c",
+  text: "#1F2937",
+  textSecondary: "#6B7280",
+  background: "#FAFAFA",
 };
 export const DarkPalette = {
-  primary: "#323e4d",
-  primaryDark: "#262f3b",
-  accent: "#af2362",
-  gray100: "#222222",
-  gray200: "#d2d2d2",
-  gray400: "#b9b9b9",
-  gray800: "#333333",
-  white: "#dddada",
+  primary: "#3A3F47",
+  primaryDark: "#2A2F36",
+  accent: "#E91E63",
+  gray100: "#1F1F1F",
+  gray200: "#D1D5DB",
+  gray400: "#9CA3AF",
+  gray800: "#2D2D2D",
+  white: "#F3F4F6",
   black: "#000000",
-  text: "#959595",
-  textSecondary: "#818d9c",
+  text: "#E5E7EB",
+  textSecondary: "#9CA3AF",
+  background: "#111827",
 };
 
 export const createAppTheme = (palette: typeof LightPalette) =>
   createTheme({
     colors: {
       ...palette,
-      background: palette.primaryDark,
-      text: palette.gray800,
+      background: palette.background,
+      text: palette.text,
     },
 
     spacing: {
@@ -58,9 +60,9 @@ export const createAppTheme = (palette: typeof LightPalette) =>
         fontFamily: "Inter-Regular",
       },
       header: {
-        color: "text",
+        // color: "text",
         fontSize: 28,
-        fontFamily: "Inter-Bold",
+        fontFamily: "Inter-Regular",
       },
       body: {
         fontSize: 16,

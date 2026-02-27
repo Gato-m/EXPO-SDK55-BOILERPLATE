@@ -11,6 +11,19 @@ import { useTheme } from "@shopify/restyle";
 import { useThemeMode } from "../../providers/ThemeProvider";
 import { Theme } from "../../theme";
 
+// Funkcija, kas aprēķina luminanci un nosaka, vai krāsa ir tumša vai gaiša
+function isColorDark(hex: string) {
+  const c = hex.replace("#", "");
+  const r = parseInt(c.substring(0, 2), 16);
+  const g = parseInt(c.substring(2, 4), 16);
+  const b = parseInt(c.substring(4, 6), 16);
+
+  // Perceptuālā luminance (cilvēka acs jutība)
+  const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+
+  return luminance < 150; // zem 150 → tumšs fons
+}
+
 export default function Profile() {
   const { toggle, mode } = useThemeMode();
   const theme = useTheme<Theme>();
@@ -19,43 +32,43 @@ export default function Profile() {
 
   return (
     <ThemedView style={{ padding: 20 }}>
-      <ThemedHeader>Krāsu Palete</ThemedHeader>
+      <ThemedHeader color="text">Krāsu Palete</ThemedHeader>
       <ThemedSpacer size="xl" />
 
       <ThemedButton
         label={
           mode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"
         }
-        variant="secondary"
+        variant="primary"
         onPress={toggle}
       />
 
       <ThemedSpacer size="xl" />
 
-      <ThemedSpacer size="m" />
+      {colorKeys.map((key) => {
+        const bg = theme.colors[key];
+        const dark = isColorDark(bg);
 
-      {colorKeys.map((key) => (
-        <ThemedCard
-          key={key}
-          style={{
-            backgroundColor: theme.colors[key],
-            marginBottom: theme.spacing.s,
-            padding: theme.spacing.s,
-          }}
-        >
-          <ThemedText
-            variant="body"
+        return (
+          <ThemedCard
+            key={key}
             style={{
-              color:
-                key === "white" || key === "gray800"
-                  ? theme.colors.gray200
-                  : theme.colors.gray800,
+              backgroundColor: bg,
+              marginBottom: theme.spacing.s,
+              padding: theme.spacing.s,
             }}
           >
-            {key}: {theme.colors[key]}
-          </ThemedText>
-        </ThemedCard>
-      ))}
+            <ThemedText
+              variant="body"
+              style={{
+                color: dark ? theme.colors.white : theme.colors.black,
+              }}
+            >
+              {key}: {bg}
+            </ThemedText>
+          </ThemedCard>
+        );
+      })}
     </ThemedView>
   );
 }

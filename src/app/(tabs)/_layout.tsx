@@ -9,19 +9,18 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: theme.colors.primaryDark,
+          backgroundColor: theme.colors.background,
           borderTopColor: theme.colors.gray200,
         },
-        tabBarActiveTintColor: theme.colors.accent,
-        tabBarInactiveTintColor: theme.colors.gray200,
-
+        tabBarActiveTintColor: theme.colors.accent || theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.textSecondary,
         headerStyle: {
-          backgroundColor: theme.colors.primaryDark,
+          backgroundColor: theme.colors.background,
         },
         headerTitleStyle: {
-          color: theme.colors.gray200,
+          color: theme.colors.text,
         },
-        headerTintColor: theme.colors.gray200,
+        headerTintColor: theme.colors.text,
       }}
     />
   );
