@@ -30,10 +30,6 @@ export default function DemoScreen() {
 
       <ThemedSpacer size="m" />
 
-      <ThemedText variant="body">
-        Aktīvā tēma: {mode === "light" ? "Light" : "Dark"}
-      </ThemedText>
-
       <ThemedSpacer size="l" />
 
       {/* CARD */}
@@ -57,15 +53,6 @@ export default function DemoScreen() {
       </ThemedCard>
 
       <ThemedSpacer size="l" />
-
-      {/* THEME TOGGLE */}
-      <ThemedButton
-        label={
-          mode === "light" ? "Pārslēgt uz Dark Mode" : "Pārslēgt uz Light Mode"
-        }
-        variant="accent"
-        onPress={toggle}
-      />
 
       <ThemedSpacer size="xl" />
     </ThemedView>

@@ -1,24 +1,15 @@
-import { useThemeMode } from "@/providers/ThemeProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { TouchableOpacity, View } from "react-native";
 import {
-  ThemedButton,
   ThemedHeader,
   ThemedSpacer,
   ThemedText,
   ThemedView,
 } from "../../components";
 
-import { useTheme } from "@shopify/restyle";
-import { Theme } from "../../theme";
-
 export default function HomeScreen() {
   const router = useRouter();
-  const { toggle, mode } = useThemeMode();
-  const theme = useTheme<Theme>();
-
-  const colorKeys = Object.keys(theme.colors) as (keyof Theme["colors"])[];
 
   return (
     <ThemedView
@@ -52,14 +43,6 @@ export default function HomeScreen() {
       </ThemedText>
 
       <ThemedSpacer size="xl" />
-
-      <ThemedButton
-        label={
-          mode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"
-        }
-        variant="primary"
-        onPress={toggle}
-      />
     </ThemedView>
   );
 }

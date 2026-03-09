@@ -1,5 +1,4 @@
 import {
-  ThemedButton,
   ThemedCard,
   ThemedHeader,
   ThemedSpacer,
@@ -35,17 +34,7 @@ export default function Profile() {
     <ThemedView style={{ padding: 20 }}>
       <ScrollView>
         <ThemedHeader color="text">Krāsu Palete</ThemedHeader>
-        <ThemedSpacer size="xl" />
-
-        <ThemedButton
-          label={
-            mode === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"
-          }
-          variant="primary"
-          onPress={toggle}
-        />
-
-        <ThemedSpacer size="xl" />
+        <ThemedSpacer size="s" />
 
         {colorKeys.map((key) => {
           const bg = theme.colors[key];

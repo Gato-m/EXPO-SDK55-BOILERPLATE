@@ -1,6 +1,7 @@
 import { useTheme } from "@shopify/restyle";
 import { Stack } from "expo-router";
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { StatusBar } from "expo-status-bar";
+import { ThemeProvider, useThemeMode } from "../providers/ThemeProvider";
 import { Theme } from "../theme";
 
 function ThemedStack() {
@@ -19,7 +20,6 @@ function ThemedStack() {
       }}
     >
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-
       <Stack.Screen
         name="(modals)"
         options={{
@@ -31,10 +31,21 @@ function ThemedStack() {
   );
 }
 
+function AppContent() {
+  const { mode } = useThemeMode();
+
+  return (
+    <>
+      <ThemedStack />
+      <StatusBar style={mode === "light" ? "dark" : "light"} />
+    </>
+  );
+}
+
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <ThemedStack />
+      <AppContent />
     </ThemeProvider>
   );
 }

@@ -1,6 +1,7 @@
 import { useTheme } from "@shopify/restyle";
 import { Tabs } from "expo-router";
 import TabBarIcon from "../../components/TabBarIcon";
+import { ThemeToggleButton } from "../../components/ThemeToggleButton";
 import { Theme } from "../../theme";
 
 export default function TabsLayout() {
@@ -22,6 +23,10 @@ export default function TabsLayout() {
           color: theme.colors.text,
         },
         headerTintColor: theme.colors.text,
+        headerRight: () => <ThemeToggleButton />,
+        headerRightContainerStyle: {
+          paddingRight: 16,
+        },
       }}
     >
       <Tabs.Screen
